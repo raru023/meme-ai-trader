@@ -1444,9 +1444,6 @@ def main():
         state
     )
 
-    update_risk_metrics(
-        state
-    )
 
     # --------------------------------------------------------
     # New entries
