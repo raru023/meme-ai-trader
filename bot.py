@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 import requests
 
-STATE_FILE = Path('data/state.json')
+STATE_FILE = Path('state.json')
 STARTING_BALANCE = 10000
 SEARCH_URL = 'https://api.dexscreener.com/latest/dex/search'
 SEARCH_WORDS = ['meme', 'pepe', 'doge', 'cat', 'pump']
