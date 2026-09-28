@@ -1,20 +1,49 @@
 import json
 from datetime import datetime, timezone
 from pathlib import Path
+
 import requests
+
+
+# ============================================================
+# Meme AI Trader v2
+# PAPER TRADING ONLY
+# ============================================================
 
 STATE_FILE = Path("state.json")
 
 STARTING_BALANCE = 10000.0
 
 SEARCH_URL = "https://api.dexscreener.com/latest/dex/search"
-SEARCH_WORDS = ["meme", "pepe", "doge", "cat", "pump"]
 
-MIN_LIQUIDITY_USD = 10000
-MIN_VOLUME_USD = 5000
+SEARCH_WORDS = [
+    "meme",
+    "pepe",
+    "doge",
+    "cat",
+    "pump",
+]
+
+# ------------------------------------------------------------
+# Market filters
+# ------------------------------------------------------------
+
+MIN_LIQUIDITY_USD = 100000
+MIN_VOLUME_USD = 25000
+
+# 24hでこれ以上上がっている銘柄は
+# 急騰後の飛び乗りを避けるため除外
+MAX_ENTRY_CHANGE_24H_PCT = 30.0
+
 MAX_CANDIDATES = 10
 
+
+# ------------------------------------------------------------
+# Position / risk
+# ------------------------------------------------------------
+
 MAX_OPEN_POSITIONS = 2
+
 RISK_PER_TRADE_PCT = 1.0
 
 STOP_LOSS_PCT = 8.0
@@ -22,6 +51,23 @@ TAKE_PROFIT_PCT = 16.0
 
 MAX_HOLD_TICKS = 20
 
+# +5%到達後、建値までストップを引き上げる
+BREAKEVEN_TRIGGER_PCT = 5.0
+
+# +8%到達後、最高値から4%下にトレーリングストップ
+TRAILING_TRIGGER_PCT = 8.0
+TRAILING_STOP_PCT = 4.0
+
+# 保有中のスコアがここまで落ちたら撤退
+EXIT_SCORE_THRESHOLD = 45
+
+# 新規エントリー最低スコア
+ENTRY_SCORE_THRESHOLD = 70
+
+
+# ============================================================
+# Utility
+# ============================================================
 
 def now_iso():
     return datetime.now(timezone.utc).isoformat()
@@ -31,54 +77,111 @@ def default_state():
     return {
         "updated_at": "not_started",
         "mode": "PAPER",
+
         "starting_balance": STARTING_BALANCE,
+
         "cash": STARTING_BALANCE,
         "equity": STARTING_BALANCE,
+
         "pnl": 0,
         "pnl_pct": 0,
+
         "wins": 0,
         "losses": 0,
         "win_rate": 0,
+
         "max_equity": STARTING_BALANCE,
         "max_drawdown_pct": 0,
+
         "consecutive_losses": 0,
         "cooldown": False,
+
         "open_positions": [],
         "candidates": [],
         "trades": [],
+
+        "equity_history": [],
+
         "tick": 0,
+
         "risk": {
-            "max_risk_per_trade_pct": RISK_PER_TRADE_PCT,
-            "max_open_positions": MAX_OPEN_POSITIONS,
-            "stop_loss_pct": STOP_LOSS_PCT,
-            "take_profit_pct": TAKE_PROFIT_PCT,
-            "max_hold_ticks": MAX_HOLD_TICKS
+            "max_risk_per_trade_pct":
+                RISK_PER_TRADE_PCT,
+
+            "max_open_positions":
+                MAX_OPEN_POSITIONS,
+
+            "stop_loss_pct":
+                STOP_LOSS_PCT,
+
+            "take_profit_pct":
+                TAKE_PROFIT_PCT,
+
+            "max_hold_ticks":
+                MAX_HOLD_TICKS,
+
+            "breakeven_trigger_pct":
+                BREAKEVEN_TRIGGER_PCT,
+
+            "trailing_trigger_pct":
+                TRAILING_TRIGGER_PCT,
+
+            "trailing_stop_pct":
+                TRAILING_STOP_PCT,
+
+            "entry_score_threshold":
+                ENTRY_SCORE_THRESHOLD,
+
+            "exit_score_threshold":
+                EXIT_SCORE_THRESHOLD,
         }
     }
 
 
 def load_state():
+
     if not STATE_FILE.exists():
         return default_state()
 
     try:
-        with open(STATE_FILE, encoding="utf-8") as f:
+
+        with open(
+            STATE_FILE,
+            encoding="utf-8"
+        ) as f:
+
             state = json.load(f)
 
         base = default_state()
 
         for key, value in base.items():
+
             if key not in state:
                 state[key] = value
 
+        # v1からの移行
+        if "equity_history" not in state:
+            state["equity_history"] = []
+
         return state
 
-    except Exception:
+    except Exception as e:
+
+        print(
+            f"State load error: {e}"
+        )
+
         return default_state()
 
 
 def save_state(state):
-    with open(STATE_FILE, "w", encoding="utf-8") as f:
+
+    with open(
+        STATE_FILE,
+        "w",
+        encoding="utf-8"
+    ) as f:
+
         json.dump(
             state,
             f,
@@ -87,25 +190,39 @@ def save_state(state):
         )
 
 
+# ============================================================
+# Market data
+# ============================================================
+
 def search_market(keyword):
+
     try:
+
         response = requests.get(
             SEARCH_URL,
-            params={"q": keyword},
+            params={
+                "q": keyword
+            },
             timeout=15,
             headers={
-                "User-Agent": "meme-ai-trader-paper/1.0"
+                "User-Agent":
+                    "meme-ai-trader-paper/2.0"
             }
         )
 
         response.raise_for_status()
 
-        return response.json().get("pairs", [])
+        return response.json().get(
+            "pairs",
+            []
+        )
 
     except Exception as e:
+
         print(
             f"API error [{keyword}]: {e}"
         )
+
         return []
 
 
@@ -119,54 +236,84 @@ def collect_candidates():
             f"Searching: {keyword}"
         )
 
-        for pair in search_market(keyword):
+        pairs = search_market(
+            keyword
+        )
 
-            liquidity = pair.get(
-                "liquidity"
-            ) or {}
+        for pair in pairs:
 
-            volume = pair.get(
-                "volume"
-            ) or {}
+            liquidity = (
+                pair.get("liquidity")
+                or {}
+            )
 
-            price_change = pair.get(
-                "priceChange"
-            ) or {}
+            volume = (
+                pair.get("volume")
+                or {}
+            )
 
-            base = pair.get(
-                "baseToken"
-            ) or {}
+            price_change = (
+                pair.get("priceChange")
+                or {}
+            )
+
+            base = (
+                pair.get("baseToken")
+                or {}
+            )
 
             try:
+
                 liquidity_usd = float(
-                    liquidity.get("usd") or 0
+                    liquidity.get("usd")
+                    or 0
                 )
 
                 volume_24h = float(
-                    volume.get("h24") or 0
+                    volume.get("h24")
+                    or 0
                 )
 
                 price_usd = float(
-                    pair.get("priceUsd") or 0
+                    pair.get("priceUsd")
+                    or 0
                 )
 
                 change_24h = float(
-                    price_change.get("h24") or 0
+                    price_change.get("h24")
+                    or 0
                 )
 
             except (
                 TypeError,
                 ValueError
             ):
+
                 continue
 
-            if liquidity_usd < MIN_LIQUIDITY_USD:
+            # ------------------------------------------------
+            # Basic filters
+            # ------------------------------------------------
+
+            if (
+                liquidity_usd
+                < MIN_LIQUIDITY_USD
+            ):
                 continue
 
-            if volume_24h < MIN_VOLUME_USD:
+            if (
+                volume_24h
+                < MIN_VOLUME_USD
+            ):
                 continue
 
             if price_usd <= 0:
+                continue
+
+            if (
+                change_24h
+                > MAX_ENTRY_CHANGE_24H_PCT
+            ):
                 continue
 
             pair_address = pair.get(
@@ -185,45 +332,89 @@ def collect_candidates():
                 "UNKNOWN"
             )
 
-            # 同じ銘柄を複数DEXから拾っても、
-            # 銘柄単位で代表ペアを1つだけ残す
+            token_address = base.get(
+                "address"
+            )
+
+            if not token_address:
+                continue
+
+            # ------------------------------------------------
+            # IMPORTANT:
+            # tickerではなくtoken addressで識別
+            # ------------------------------------------------
+
             token_key = (
                 f"{chain}:"
-                f"{symbol.upper()}"
+                f"{token_address.lower()}"
             )
 
             candidate = {
-                "chain": chain,
-                "dex": pair.get("dexId"),
-                "pair_address": pair_address,
-                "symbol": symbol,
-                "name": base.get(
-                    "name",
-                    "UNKNOWN"
-                ),
-                "price": price_usd,
-                "liquidity_usd": liquidity_usd,
-                "volume_24h_usd": volume_24h,
-                "price_change_24h_pct": change_24h,
-                "url": pair.get("url")
+
+                "chain":
+                    chain,
+
+                "dex":
+                    pair.get("dexId"),
+
+                "pair_address":
+                    pair_address,
+
+                "token_address":
+                    token_address,
+
+                "symbol":
+                    symbol,
+
+                "name":
+                    base.get(
+                        "name",
+                        "UNKNOWN"
+                    ),
+
+                "price":
+                    price_usd,
+
+                "liquidity_usd":
+                    liquidity_usd,
+
+                "volume_24h_usd":
+                    volume_24h,
+
+                "price_change_24h_pct":
+                    change_24h,
+
+                "url":
+                    pair.get("url"),
             }
 
-            # より流動性が高いペアを代表として採用
             existing = unique.get(
                 token_key
             )
 
+            # 同じtokenなら
+            # liquidityの高いpairを採用
             if (
                 existing is None
-                or candidate["liquidity_usd"]
-                > existing["liquidity_usd"]
+                or
+                candidate[
+                    "liquidity_usd"
+                ]
+                >
+                existing[
+                    "liquidity_usd"
+                ]
             ):
-                unique[token_key] = candidate
+
+                unique[
+                    token_key
+                ] = candidate
 
     candidates = list(
         unique.values()
     )
 
+    # volumeを中心に候補を並べる
     candidates.sort(
         key=lambda x: (
             x["volume_24h_usd"],
@@ -232,8 +423,14 @@ def collect_candidates():
         reverse=True
     )
 
-    return candidates[:MAX_CANDIDATES]
+    return candidates[
+        :MAX_CANDIDATES
+    ]
 
+
+# ============================================================
+# Scoring
+# ============================================================
 
 def calculate_score(candidate):
 
@@ -251,25 +448,109 @@ def calculate_score(candidate):
         "price_change_24h_pct"
     ]
 
-    if liquidity >= 10000:
-        score += 20
+    # --------------------------------------------------------
+    # Liquidity: 0〜25
+    # --------------------------------------------------------
 
-    if liquidity >= 50000:
+    if liquidity >= 100000:
         score += 10
 
-    if volume >= 10000:
-        score += 20
-
-    if volume >= 50000:
-        score += 10
-
-    if 0 < change <= 20:
-        score += 20
-
-    elif change > 20:
+    if liquidity >= 500000:
         score += 5
 
-    if change < -20:
+    if liquidity >= 1000000:
+        score += 5
+
+    if liquidity >= 5000000:
+        score += 5
+
+    # --------------------------------------------------------
+    # Volume: 0〜25
+    # --------------------------------------------------------
+
+    if volume >= 25000:
+        score += 10
+
+    if volume >= 100000:
+        score += 5
+
+    if volume >= 500000:
+        score += 5
+
+    if volume >= 1000000:
+        score += 5
+
+    # --------------------------------------------------------
+    # Volume / Liquidity
+    #
+    # 低すぎる = 活発ではない
+    # 高すぎる = 異常な投機状態の可能性
+    # --------------------------------------------------------
+
+    if liquidity > 0:
+
+        volume_liquidity_ratio = (
+            volume / liquidity
+        )
+
+    else:
+
+        volume_liquidity_ratio = 0
+
+    if (
+        0.05
+        <= volume_liquidity_ratio
+        <= 2.0
+    ):
+
+        score += 15
+
+    elif (
+        0.02
+        <= volume_liquidity_ratio
+        <= 4.0
+    ):
+
+        score += 8
+
+    # --------------------------------------------------------
+    # Momentum: 0〜20
+    # --------------------------------------------------------
+
+    if 1 <= change <= 5:
+
+        score += 20
+
+    elif 5 < change <= 10:
+
+        score += 18
+
+    elif 10 < change <= 15:
+
+        score += 12
+
+    elif 0 < change < 1:
+
+        score += 8
+
+    elif -3 <= change < 0:
+
+        score += 4
+
+    else:
+
+        score += 0
+
+    # --------------------------------------------------------
+    # Extreme movement penalty
+    # --------------------------------------------------------
+
+    if change > 20:
+
+        score -= 15
+
+    if change < -10:
+
         score -= 10
 
     return max(
@@ -278,9 +559,15 @@ def calculate_score(candidate):
     )
 
 
+# ============================================================
+# Equity
+# ============================================================
+
 def calculate_equity(state):
 
-    equity = state["cash"]
+    equity = state[
+        "cash"
+    ]
 
     for position in state[
         "open_positions"
@@ -299,26 +586,108 @@ def calculate_equity(state):
     return equity
 
 
-def already_holding_symbol(
+# ============================================================
+# Position helpers
+# ============================================================
+
+def already_holding_token(
     state,
-    symbol
+    candidate
 ):
 
-    symbol = symbol.upper()
+    token_address = (
+        candidate.get(
+            "token_address"
+        )
+        or ""
+    ).lower()
+
+    chain = candidate.get(
+        "chain"
+    )
 
     for position in state[
         "open_positions"
     ]:
 
         if (
-            position["symbol"]
-            .upper()
-            == symbol
+            position.get(
+                "chain"
+            )
+            == chain
+            and
+            position.get(
+                "token_address",
+                ""
+            ).lower()
+            == token_address
         ):
+
             return True
 
     return False
 
+
+def find_candidate_for_position(
+    state,
+    position
+):
+
+    pair_address = position.get(
+        "pair_address"
+    )
+
+    token_address = (
+        position.get(
+            "token_address"
+        )
+        or ""
+    ).lower()
+
+    chain = position.get(
+        "chain"
+    )
+
+    # まずpair完全一致
+    for candidate in state[
+        "candidates"
+    ]:
+
+        if (
+            candidate[
+                "pair_address"
+            ]
+            == pair_address
+        ):
+
+            return candidate
+
+    # 次にtoken address + chain
+    for candidate in state[
+        "candidates"
+    ]:
+
+        if (
+            candidate.get(
+                "chain"
+            )
+            == chain
+            and
+            candidate.get(
+                "token_address",
+                ""
+            ).lower()
+            == token_address
+        ):
+
+            return candidate
+
+    return None
+
+
+# ============================================================
+# Open position
+# ============================================================
 
 def open_position(
     state,
@@ -326,30 +695,36 @@ def open_position(
 ):
 
     if len(
-        state["open_positions"]
+        state[
+            "open_positions"
+        ]
     ) >= MAX_OPEN_POSITIONS:
+
         return False
 
-    if candidate["score"] < 60:
-        return False
-
-    symbol = candidate[
-        "symbol"
-    ]
-
-    # 同一銘柄は1ポジションだけ
-    if already_holding_symbol(
-        state,
-        symbol
+    if (
+        candidate["score"]
+        < ENTRY_SCORE_THRESHOLD
     ):
+
+        return False
+
+    if already_holding_token(
+        state,
+        candidate
+    ):
+
         print(
-            f"SKIP {symbol}: "
-            "already holding"
+            f"SKIP "
+            f"{candidate['symbol']}: "
+            "already holding token"
         )
 
         return False
 
-    price = candidate["price"]
+    price = candidate[
+        "price"
+    ]
 
     if price <= 0:
         return False
@@ -365,7 +740,8 @@ def open_position(
     )
 
     stop_distance = (
-        STOP_LOSS_PCT / 100
+        STOP_LOSS_PCT
+        / 100
     )
 
     position_value = (
@@ -383,13 +759,25 @@ def open_position(
         return False
 
     quantity = (
-        position_value / price
+        position_value
+        / price
     )
 
     position = {
+
         "pair_address":
             candidate[
                 "pair_address"
+            ],
+
+        "token_address":
+            candidate[
+                "token_address"
+            ],
+
+        "chain":
+            candidate[
+                "chain"
             ],
 
         "symbol":
@@ -408,6 +796,9 @@ def open_position(
         "current_price":
             price,
 
+        "highest_price":
+            price,
+
         "quantity":
             quantity,
 
@@ -418,37 +809,61 @@ def open_position(
             state["tick"],
 
         "score_at_entry":
-            candidate["score"],
+            candidate[
+                "score"
+            ],
+
+        "current_score":
+            candidate[
+                "score"
+            ],
 
         "stop_loss_price":
             price
             * (
                 1
-                - STOP_LOSS_PCT / 100
+                - STOP_LOSS_PCT
+                / 100
+            ),
+
+        "original_stop_loss_price":
+            price
+            * (
+                1
+                - STOP_LOSS_PCT
+                / 100
             ),
 
         "take_profit_price":
             price
             * (
                 1
-                + TAKE_PROFIT_PCT / 100
+                + TAKE_PROFIT_PCT
+                / 100
             ),
 
+        "stop_mode":
+            "INITIAL",
+
         "url":
-            candidate.get("url")
+            candidate.get(
+                "url"
+            ),
     }
 
-    state["cash"] -= (
-        position_value
-    )
+    state[
+        "cash"
+    ] -= position_value
 
     state[
         "open_positions"
-    ].append(position)
+    ].append(
+        position
+    )
 
     print(
         f"PAPER BUY "
-        f"{symbol} "
+        f"{candidate['symbol']} "
         f"${price} "
         f"value="
         f"${position_value:.2f} "
@@ -458,6 +873,10 @@ def open_position(
 
     return True
 
+
+# ============================================================
+# Close position
+# ============================================================
 
 def close_position(
     state,
@@ -484,16 +903,26 @@ def close_position(
         * quantity
     )
 
-    state["cash"] += (
-        exit_value
-    )
+    state[
+        "cash"
+    ] += exit_value
 
     trade = {
+
         "symbol":
-            position["symbol"],
+            position[
+                "symbol"
+            ],
 
         "name":
-            position["name"],
+            position[
+                "name"
+            ],
+
+        "token_address":
+            position.get(
+                "token_address"
+            ),
 
         "entry_price":
             entry_price,
@@ -512,6 +941,16 @@ def close_position(
         "pnl":
             pnl,
 
+        "return_pct":
+            (
+                (
+                    exit_price
+                    / entry_price
+                )
+                - 1
+            )
+            * 100,
+
         "reason":
             reason,
 
@@ -521,27 +960,52 @@ def close_position(
             ],
 
         "exit_tick":
-            state["tick"],
+            state[
+                "tick"
+            ],
 
         "closed_at":
             now_iso(),
 
+        "score_at_entry":
+            position.get(
+                "score_at_entry"
+            ),
+
+        "last_score":
+            position.get(
+                "current_score"
+            ),
+
+        "stop_mode":
+            position.get(
+                "stop_mode"
+            ),
+
         "url":
-            position.get("url")
+            position.get(
+                "url"
+            ),
     }
 
     state[
         "trades"
-    ].append(trade)
+    ].append(
+        trade
+    )
 
     # 最大100件
-    state["trades"] = (
-        state["trades"][-100:]
-    )
+    state[
+        "trades"
+    ] = state[
+        "trades"
+    ][-100:]
 
     if pnl > 0:
 
-        state["wins"] += 1
+        state[
+            "wins"
+        ] += 1
 
         state[
             "consecutive_losses"
@@ -549,7 +1013,9 @@ def close_position(
 
     else:
 
-        state["losses"] += 1
+        state[
+            "losses"
+        ] += 1
 
         state[
             "consecutive_losses"
@@ -562,7 +1028,9 @@ def close_position(
 
     if total > 0:
 
-        state["win_rate"] = (
+        state[
+            "win_rate"
+        ] = (
             state["wins"]
             / total
         ) * 100
@@ -578,9 +1046,12 @@ def close_position(
     )
 
 
+# ============================================================
+# Update positions
+# ============================================================
+
 def update_positions(
-    state,
-    price_map
+    state
 ):
 
     remaining = []
@@ -589,40 +1060,19 @@ def update_positions(
         "open_positions"
     ]:
 
-        pair_address = position[
-            "pair_address"
-        ]
-
-        current_price = price_map.get(
-            pair_address
+        candidate = (
+            find_candidate_for_position(
+                state,
+                position
+            )
         )
 
-        # 新しい代表ペアに変わった場合、
-        # 同一symbolの価格も探す
-        if current_price is None:
+        if candidate is None:
 
-            for candidate in (
-                state["candidates"]
-            ):
-
-                if (
-                    candidate["symbol"]
-                    .upper()
-                    ==
-                    position[
-                        "symbol"
-                    ].upper()
-                ):
-
-                    current_price = (
-                        candidate[
-                            "price"
-                        ]
-                    )
-
-                    break
-
-        if current_price is None:
+            print(
+                f"NO PRICE "
+                f"{position['symbol']}"
+            )
 
             remaining.append(
                 position
@@ -630,9 +1080,105 @@ def update_positions(
 
             continue
 
+        current_price = candidate[
+            "price"
+        ]
+
+        current_score = candidate[
+            "score"
+        ]
+
         position[
             "current_price"
         ] = current_price
+
+        position[
+            "current_score"
+        ] = current_score
+
+        # 最高値更新
+        if current_price > position[
+            "highest_price"
+        ]:
+
+            position[
+                "highest_price"
+            ] = current_price
+
+        entry_price = position[
+            "entry_price"
+        ]
+
+        price_change_pct = (
+            (
+                current_price
+                / entry_price
+            )
+            - 1
+        ) * 100
+
+        # ----------------------------------------------------
+        # Breakeven
+        # ----------------------------------------------------
+
+        if (
+            price_change_pct
+            >= BREAKEVEN_TRIGGER_PCT
+            and
+            position[
+                "stop_mode"
+            ]
+            == "INITIAL"
+        ):
+
+            position[
+                "stop_loss_price"
+            ] = entry_price
+
+            position[
+                "stop_mode"
+            ] = "BREAKEVEN"
+
+            print(
+                f"BREAKEVEN "
+                f"{position['symbol']}"
+            )
+
+        # ----------------------------------------------------
+        # Trailing stop
+        # ----------------------------------------------------
+
+        if (
+            price_change_pct
+            >= TRAILING_TRIGGER_PCT
+        ):
+
+            trailing_stop = (
+                position[
+                    "highest_price"
+                ]
+                * (
+                    1
+                    - TRAILING_STOP_PCT
+                    / 100
+                )
+            )
+
+            if (
+                trailing_stop
+                >
+                position[
+                    "stop_loss_price"
+                ]
+            ):
+
+                position[
+                    "stop_loss_price"
+                ] = trailing_stop
+
+                position[
+                    "stop_mode"
+                ] = "TRAILING"
 
         hold_ticks = (
             state["tick"]
@@ -641,6 +1187,12 @@ def update_positions(
             ]
         )
 
+        # ----------------------------------------------------
+        # Exit checks
+        # ----------------------------------------------------
+
+        reason = None
+
         if (
             current_price
             <= position[
@@ -648,10 +1200,17 @@ def update_positions(
             ]
         ):
 
-            close_position(
-                state,
-                position,
-                current_price,
+            reason = (
+                "TRAILING_STOP"
+                if position[
+                    "stop_mode"
+                ] == "TRAILING"
+                else
+                "BREAKEVEN_STOP"
+                if position[
+                    "stop_mode"
+                ] == "BREAKEVEN"
+                else
                 "STOP_LOSS"
             )
 
@@ -662,23 +1221,31 @@ def update_positions(
             ]
         ):
 
-            close_position(
-                state,
-                position,
-                current_price,
-                "TAKE_PROFIT"
-            )
+            reason = "TAKE_PROFIT"
+
+        elif (
+            current_score
+            < EXIT_SCORE_THRESHOLD
+            and
+            hold_ticks >= 2
+        ):
+
+            reason = "SCORE_EXIT"
 
         elif (
             hold_ticks
             >= MAX_HOLD_TICKS
         ):
 
+            reason = "MAX_HOLD"
+
+        if reason:
+
             close_position(
                 state,
                 position,
                 current_price,
-                "MAX_HOLD"
+                reason
             )
 
         else:
@@ -692,13 +1259,21 @@ def update_positions(
     ] = remaining
 
 
-def update_risk_metrics(state):
+# ============================================================
+# Risk metrics
+# ============================================================
+
+def update_risk_metrics(
+    state
+):
 
     equity = calculate_equity(
         state
     )
 
-    state["equity"] = equity
+    state[
+        "equity"
+    ] = equity
 
     if equity > state[
         "max_equity"
@@ -719,7 +1294,8 @@ def update_risk_metrics(state):
                 ]
                 - equity
             )
-            / state[
+            /
+            state[
                 "max_equity"
             ]
         ) * 100
@@ -733,12 +1309,16 @@ def update_risk_metrics(state):
             drawdown
         )
 
-    state["pnl"] = (
+    state[
+        "pnl"
+    ] = (
         equity
         - STARTING_BALANCE
     )
 
-    state["pnl_pct"] = (
+    state[
+        "pnl_pct"
+    ] = (
         state["pnl"]
         / STARTING_BALANCE
     ) * 100
@@ -751,29 +1331,98 @@ def update_risk_metrics(state):
         ] >= 3
     )
 
+    # --------------------------------------------------------
+    # Equity history
+    # --------------------------------------------------------
+
+    history = state.get(
+        "equity_history",
+        []
+    )
+
+    history.append({
+
+        "tick":
+            state["tick"],
+
+        "timestamp":
+            state["updated_at"],
+
+        "equity":
+            equity,
+
+        "cash":
+            state["cash"],
+
+        "pnl":
+            state["pnl"],
+
+        "pnl_pct":
+            state["pnl_pct"],
+
+    })
+
+    # 最大200件
+    state[
+        "equity_history"
+    ] = history[-200:]
+
+
+# ============================================================
+# Main
+# ============================================================
 
 def main():
 
     print(
-        "Meme AI Trader"
-        " - PAPER MODE"
-        " - REAL MARKET DATA"
-        " - NO LIVE TRADING"
+        "================================"
+    )
+
+    print(
+        "Meme AI Trader v2"
+    )
+
+    print(
+        "PAPER MODE"
+    )
+
+    print(
+        "REAL MARKET DATA"
+    )
+
+    print(
+        "NO LIVE TRADING"
+    )
+
+    print(
+        "================================"
     )
 
     state = load_state()
 
-    state["tick"] += 1
+    state[
+        "tick"
+    ] += 1
 
     state[
         "updated_at"
     ] = now_iso()
 
-    state["mode"] = "PAPER"
+    state[
+        "mode"
+    ] = "PAPER"
+
+    # --------------------------------------------------------
+    # Collect market
+    # --------------------------------------------------------
 
     candidates = (
         collect_candidates()
     )
+
+    # --------------------------------------------------------
+    # Score
+    # --------------------------------------------------------
 
     for candidate in candidates:
 
@@ -787,35 +1436,33 @@ def main():
         "candidates"
     ] = candidates
 
-    price_map = {
-        candidate[
-            "pair_address"
-        ]: candidate[
-            "price"
-        ]
-        for candidate
-        in candidates
-    }
+    # --------------------------------------------------------
+    # Existing positions
+    # --------------------------------------------------------
 
-    # 既存ポジション更新
     update_positions(
-        state,
-        price_map
+        state
     )
 
     update_risk_metrics(
         state
     )
 
-    # 新規エントリー
+    # --------------------------------------------------------
+    # New entries
+    # --------------------------------------------------------
+
     if not state[
         "cooldown"
     ]:
 
         sorted_candidates = sorted(
             candidates,
-            key=lambda x:
+            key=lambda x: (
                 x["score"],
+                x["volume_24h_usd"],
+                x["liquidity_usd"],
+            ),
             reverse=True
         )
 
@@ -831,10 +1478,23 @@ def main():
 
                 break
 
-            open_position(
+            opened = open_position(
                 state,
                 candidate
             )
+
+            if opened:
+
+                print(
+                    f"ENTRY "
+                    f"{candidate['symbol']} "
+                    f"score="
+                    f"{candidate['score']}"
+                )
+
+    # --------------------------------------------------------
+    # Final metrics
+    # --------------------------------------------------------
 
     update_risk_metrics(
         state
@@ -842,6 +1502,14 @@ def main():
 
     save_state(
         state
+    )
+
+    # --------------------------------------------------------
+    # Console
+    # --------------------------------------------------------
+
+    print(
+        "--------------------------------"
     )
 
     print(
@@ -891,7 +1559,21 @@ def main():
     )
 
     print(
+        f"Consecutive losses: "
+        f"{state['consecutive_losses']}"
+    )
+
+    print(
+        f"Cooldown: "
+        f"{state['cooldown']}"
+    )
+
+    print(
         "state.json updated."
+    )
+
+    print(
+        "--------------------------------"
     )
 
 
