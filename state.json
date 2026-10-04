@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-10-04T22:57:23.201120+00:00",
+  "updated_at": "2026-10-04T23:16:59.512821+00:00",
   "mode": "PAPER",
   "starting_balance": 10000.0,
   "cash": 7634.293732088479,
-  "equity": 10290.733352452742,
-  "pnl": 290.7333524527421,
-  "pnl_pct": 2.907333524527421,
+  "equity": 10303.440359380991,
+  "pnl": 303.44035938099114,
+  "pnl_pct": 3.034403593809911,
   "wins": 20,
   "losses": 13,
   "win_rate": 60.60606060606061,
@@ -21,7 +21,7 @@
       "symbol": "PUMP",
       "name": "Pump",
       "entry_price": 0.006081,
-      "current_price": 0.006491,
+      "current_price": 0.006542,
       "highest_price": 0.006595,
       "quantity": 209586.77550746698,
       "position_value": 1274.4971818609067,
@@ -41,7 +41,7 @@
       "symbol": "DOGE",
       "name": "Dogecoin",
       "entry_price": 0.09574,
-      "current_price": 0.09633,
+      "current_price": 0.09648,
       "highest_price": 0.09696,
       "quantity": 13453.875849115499,
       "position_value": 1288.0740737943179,
@@ -63,10 +63,10 @@
       "token_address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
       "symbol": "PUMP",
       "name": "Pump",
-      "price": 0.006491,
-      "liquidity_usd": 29228867.48,
-      "volume_24h_usd": 6470374.44,
-      "price_change_24h_pct": 3.35,
+      "price": 0.006542,
+      "liquidity_usd": 29343055.66,
+      "volume_24h_usd": 6454158.05,
+      "price_change_24h_pct": 3.49,
       "url": "https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd",
       "score": 85
     },
@@ -77,12 +77,12 @@
       "token_address": "0x6982508145454Ce325dDbE47a25d4ec3d2311933",
       "symbol": "PEPE",
       "name": "Pepe",
-      "price": 4.41e-06,
-      "liquidity_usd": 32315624.08,
-      "volume_24h_usd": 479123.0,
-      "price_change_24h_pct": 2.23,
+      "price": 4.407e-06,
+      "liquidity_usd": 32324772.88,
+      "volume_24h_usd": 505953.52,
+      "price_change_24h_pct": 2.26,
       "url": "https://dexscreener.com/ethereum/0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
-      "score": 60
+      "score": 65
     },
     {
       "chain": "robinhood",
@@ -91,12 +91,12 @@
       "token_address": "0x385F4f8ae47651ce5F58F5265395a669f8281e18",
       "symbol": "MEME",
       "name": "A Meme Coin",
-      "price": 0.01622,
-      "liquidity_usd": 678753.27,
-      "volume_24h_usd": 400696.37,
-      "price_change_24h_pct": 5.37,
+      "price": 0.01708,
+      "liquidity_usd": 712976.26,
+      "volume_24h_usd": 410473.28,
+      "price_change_24h_pct": 10.72,
       "url": "https://dexscreener.com/robinhood/0x46525dc119850396470f132c4a989d7192cb692139db891b5a4cdcd684c11b17",
-      "score": 63
+      "score": 57
     },
     {
       "chain": "solana",
@@ -133,10 +133,10 @@
       "token_address": "0xbA2aE424d960c26247Dd6c32edC70B295c744C43",
       "symbol": "DOGE",
       "name": "Dogecoin",
-      "price": 0.09633,
-      "liquidity_usd": 1026410.19,
-      "volume_24h_usd": 241488.36,
-      "price_change_24h_pct": 3.43,
+      "price": 0.09648,
+      "liquidity_usd": 1027727.56,
+      "volume_24h_usd": 241508.63,
+      "price_change_24h_pct": 3.82,
       "url": "https://dexscreener.com/bsc/0xac109c8025f272414fd9e2faa805a583708a017f",
       "score": 70
     },
@@ -827,14 +827,6 @@
     }
   ],
   "equity_history": [
-    {
-      "tick": 224,
-      "timestamp": "2026-10-01T02:50:07.903845+00:00",
-      "equity": 10280.038294054519,
-      "cash": 9020.849832781027,
-      "pnl": 280.0382940545187,
-      "pnl_pct": 2.800382940545187
-    },
     {
       "tick": 225,
       "timestamp": "2026-10-01T03:00:55.007650+00:00",
@@ -2426,9 +2418,17 @@
       "cash": 7634.293732088479,
       "pnl": 290.7333524527421,
       "pnl_pct": 2.907333524527421
+    },
+    {
+      "tick": 424,
+      "timestamp": "2026-10-04T23:16:59.512821+00:00",
+      "equity": 10303.440359380991,
+      "cash": 7634.293732088479,
+      "pnl": 303.44035938099114,
+      "pnl_pct": 3.034403593809911
     }
   ],
-  "tick": 423,
+  "tick": 424,
   "risk": {
     "max_risk_per_trade_pct": 1.0,
     "max_open_positions": 2,
