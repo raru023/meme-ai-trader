@@ -1,40 +1,19 @@
 {
-  "updated_at": "2026-10-06T02:36:24.433565+00:00",
+  "updated_at": "2026-10-06T02:51:14.979549+00:00",
   "mode": "PAPER",
   "starting_balance": 10000.0,
-  "cash": 8919.144599871324,
-  "equity": 10147.78764734408,
-  "pnl": 147.78764734407923,
-  "pnl_pct": 1.4778764734407923,
+  "cash": 10145.852776403177,
+  "equity": 10145.852776403177,
+  "pnl": 145.8527764031769,
+  "pnl_pct": 1.458527764031769,
   "wins": 24,
-  "losses": 16,
-  "win_rate": 60.0,
+  "losses": 17,
+  "win_rate": 58.536585365853654,
   "max_equity": 10447.424496627735,
   "max_drawdown_pct": 2.927309370776117,
-  "consecutive_losses": 0,
+  "consecutive_losses": 1,
   "cooldown": false,
-  "open_positions": [
-    {
-      "pair_address": "2uF4Xh61rDwxnG9woyxsVQP7zuA6kLFpb3NvnRQeoiSd",
-      "token_address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
-      "chain": "solana",
-      "symbol": "PUMP",
-      "name": "Pump",
-      "entry_price": 0.006593,
-      "current_price": 0.00635,
-      "highest_price": 0.006593,
-      "quantity": 193487.09409019756,
-      "position_value": 1275.6604113366725,
-      "entry_tick": 480,
-      "score_at_entry": 85,
-      "current_score": 69,
-      "stop_loss_price": 0.00606556,
-      "original_stop_loss_price": 0.00606556,
-      "take_profit_price": 0.007647879999999999,
-      "stop_mode": "INITIAL",
-      "url": "https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd"
-    }
-  ],
+  "open_positions": [],
   "candidates": [
     {
       "chain": "solana",
@@ -43,10 +22,10 @@
       "token_address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
       "symbol": "PUMP",
       "name": "Pump",
-      "price": 0.00635,
-      "liquidity_usd": 27830215.2,
-      "volume_24h_usd": 5170410.89,
-      "price_change_24h_pct": -0.99,
+      "price": 0.00634,
+      "liquidity_usd": 27808108.12,
+      "volume_24h_usd": 5175745.77,
+      "price_change_24h_pct": -0.37,
       "url": "https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd",
       "score": 69
     },
@@ -57,10 +36,10 @@
       "token_address": "0x6982508145454Ce325dDbE47a25d4ec3d2311933",
       "symbol": "PEPE",
       "name": "Pepe",
-      "price": 4.281e-06,
-      "liquidity_usd": 31713679.81,
-      "volume_24h_usd": 1716444.28,
-      "price_change_24h_pct": -3.71,
+      "price": 4.276e-06,
+      "liquidity_usd": 31677975.83,
+      "volume_24h_usd": 1736049.48,
+      "price_change_24h_pct": -3.83,
       "url": "https://dexscreener.com/ethereum/0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
       "score": 65
     },
@@ -71,10 +50,10 @@
       "token_address": "0xB7C0007ab75350c582d5eAb1862b872B5cF53F0C",
       "symbol": "PUMP",
       "name": "pumpBTC Governance token",
-      "price": 0.01024,
-      "liquidity_usd": 171601.01,
-      "volume_24h_usd": 1561187.73,
-      "price_change_24h_pct": -12.54,
+      "price": 0.0102,
+      "liquidity_usd": 171079.46,
+      "volume_24h_usd": 1551589.52,
+      "price_change_24h_pct": -15.14,
       "url": "https://dexscreener.com/bsc/0x90345fbe6da637322015129de38d3166f98aac9c",
       "score": 25
     },
@@ -87,10 +66,10 @@
       "name": "Pepe",
       "price": 4e-06,
       "liquidity_usd": 3657362.12,
-      "volume_24h_usd": 405268.67,
-      "price_change_24h_pct": -0.06,
+      "volume_24h_usd": 364270.76,
+      "price_change_24h_pct": 0.0,
       "url": "https://dexscreener.com/solana/2qfei1rtpdwzlr1n1kbq7c8s3s6os5mxyr8sn65bvvxs",
-      "score": 54
+      "score": 50
     },
     {
       "chain": "solana",
@@ -101,10 +80,10 @@
       "name": "Dogecoin",
       "price": 0.07461,
       "liquidity_usd": 73732688.76,
-      "volume_24h_usd": 338935.67,
-      "price_change_24h_pct": -0.01,
+      "volume_24h_usd": 297937.76,
+      "price_change_24h_pct": 0.0,
       "url": "https://dexscreener.com/solana/8jwzxnhbu4svkz5rebus4z6c1zzwhcmcafsrfxl5hbfw",
-      "score": 44
+      "score": 40
     },
     {
       "chain": "robinhood",
@@ -113,10 +92,10 @@
       "token_address": "0x385F4f8ae47651ce5F58F5265395a669f8281e18",
       "symbol": "MEME",
       "name": "A Meme Coin",
-      "price": 0.01782,
-      "liquidity_usd": 742070.28,
-      "volume_24h_usd": 243841.43,
-      "price_change_24h_pct": 8.33,
+      "price": 0.01778,
+      "liquidity_usd": 740245.56,
+      "volume_24h_usd": 242930.9,
+      "price_change_24h_pct": 8.04,
       "url": "https://dexscreener.com/robinhood/0x46525dc119850396470f132c4a989d7192cb692139db891b5a4cdcd684c11b17",
       "score": 63
     },
@@ -127,12 +106,26 @@
       "token_address": "0xbA2aE424d960c26247Dd6c32edC70B295c744C43",
       "symbol": "DOGE",
       "name": "Dogecoin",
-      "price": 0.09495,
-      "liquidity_usd": 1011290.18,
-      "volume_24h_usd": 218773.58,
-      "price_change_24h_pct": -1.48,
+      "price": 0.09462,
+      "liquidity_usd": 1008642.26,
+      "volume_24h_usd": 218473.85,
+      "price_change_24h_pct": -1.58,
       "url": "https://dexscreener.com/bsc/0xac109c8025f272414fd9e2faa805a583708a017f",
       "score": 54
+    },
+    {
+      "chain": "solana",
+      "dex": "raydium",
+      "pair_address": "7q2dQbjtxxP4DqmHEC2nsGXWSytQ8jaxdyGswmAg3PFP",
+      "token_address": "9593dFjsLKKRAaz4LX1eK2DDEgrzfu3idb6yvMysD6A1",
+      "symbol": "PUMP",
+      "name": "Pump.fun",
+      "price": 0.002255,
+      "liquidity_usd": 2050300.0,
+      "volume_24h_usd": 98724.41,
+      "price_change_24h_pct": -0.18,
+      "url": "https://dexscreener.com/solana/7q2dqbjtxxp4dqmhec2nsgxwsytq8jaxdygswmag3pfp",
+      "score": 42
     },
     {
       "chain": "solana",
@@ -147,20 +140,6 @@
       "price_change_24h_pct": 0.0,
       "url": "https://dexscreener.com/solana/23lb6psqtigczh3aaj7hfxjneq9fm4seq87vkeqtq1g3",
       "score": 38
-    },
-    {
-      "chain": "solana",
-      "dex": "raydium",
-      "pair_address": "7q2dQbjtxxP4DqmHEC2nsGXWSytQ8jaxdyGswmAg3PFP",
-      "token_address": "9593dFjsLKKRAaz4LX1eK2DDEgrzfu3idb6yvMysD6A1",
-      "symbol": "PUMP",
-      "name": "Pump.fun",
-      "price": 0.002255,
-      "liquidity_usd": 2050299.99,
-      "volume_24h_usd": 98642.42,
-      "price_change_24h_pct": -0.18,
-      "url": "https://dexscreener.com/solana/7q2dqbjtxxp4dqmhec2nsgxwsytq8jaxdygswmag3pfp",
-      "score": 42
     },
     {
       "chain": "solana",
@@ -937,17 +916,28 @@
       "last_score": 62,
       "stop_mode": "INITIAL",
       "url": "https://dexscreener.com/ethereum/0xa43fe16908251ee70ef74718545e4fe6c5ccec9f"
+    },
+    {
+      "symbol": "PUMP",
+      "name": "Pump",
+      "token_address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+      "entry_price": 0.006593,
+      "exit_price": 0.00634,
+      "quantity": 193487.09409019756,
+      "position_value": 1275.6604113366725,
+      "pnl": -48.95223480481993,
+      "return_pct": -3.837403306537235,
+      "reason": "MAX_HOLD",
+      "entry_tick": 480,
+      "exit_tick": 500,
+      "closed_at": "2026-10-06T02:51:15.383995+00:00",
+      "score_at_entry": 85,
+      "last_score": 69,
+      "stop_mode": "INITIAL",
+      "url": "https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd"
     }
   ],
   "equity_history": [
-    {
-      "tick": 300,
-      "timestamp": "2026-10-02T02:00:33.540929+00:00",
-      "equity": 10330.33550234414,
-      "cash": 9041.102190675669,
-      "pnl": 330.33550234413997,
-      "pnl_pct": 3.3033550234413998
-    },
     {
       "tick": 301,
       "timestamp": "2026-10-02T02:19:09.148329+00:00",
@@ -2539,9 +2529,17 @@
       "cash": 8919.144599871324,
       "pnl": 147.78764734407923,
       "pnl_pct": 1.4778764734407923
+    },
+    {
+      "tick": 500,
+      "timestamp": "2026-10-06T02:51:14.979549+00:00",
+      "equity": 10145.852776403177,
+      "cash": 10145.852776403177,
+      "pnl": 145.8527764031769,
+      "pnl_pct": 1.458527764031769
     }
   ],
-  "tick": 499,
+  "tick": 500,
   "risk": {
     "max_risk_per_trade_pct": 1.0,
     "max_open_positions": 2,
