@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-06T11:20:03.366513+00:00",
+  "updated_at": "2026-10-06T11:35:31.544436+00:00",
   "mode": "PAPER",
   "starting_balance": 10000.0,
   "cash": 10141.280781617572,
@@ -22,10 +22,10 @@
       "token_address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
       "symbol": "PUMP",
       "name": "Pump",
-      "price": 0.006414,
-      "liquidity_usd": 27971356.46,
-      "volume_24h_usd": 4762022.13,
-      "price_change_24h_pct": -1.26,
+      "price": 0.00635,
+      "liquidity_usd": 27831143.7,
+      "volume_24h_usd": 4789666.02,
+      "price_change_24h_pct": -2.31,
       "url": "https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd",
       "score": 69
     },
@@ -36,10 +36,10 @@
       "token_address": "0x6982508145454Ce325dDbE47a25d4ec3d2311933",
       "symbol": "PEPE",
       "name": "Pepe",
-      "price": 4.354e-06,
-      "liquidity_usd": 32045376.37,
-      "volume_24h_usd": 1100626.59,
-      "price_change_24h_pct": -3.33,
+      "price": 4.353e-06,
+      "liquidity_usd": 32039271.61,
+      "volume_24h_usd": 1101606.74,
+      "price_change_24h_pct": -3.51,
       "url": "https://dexscreener.com/ethereum/0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
       "score": 58
     },
@@ -78,12 +78,26 @@
       "token_address": "0x385F4f8ae47651ce5F58F5265395a669f8281e18",
       "symbol": "MEME",
       "name": "A Meme Coin",
-      "price": 0.01825,
-      "liquidity_usd": 759183.17,
-      "volume_24h_usd": 282946.9,
-      "price_change_24h_pct": 10.7,
+      "price": 0.01806,
+      "liquidity_usd": 751995.67,
+      "volume_24h_usd": 282055.84,
+      "price_change_24h_pct": 10.14,
       "url": "https://dexscreener.com/robinhood/0x46525dc119850396470f132c4a989d7192cb692139db891b5a4cdcd684c11b17",
       "score": 57
+    },
+    {
+      "chain": "bsc",
+      "dex": "pancakeswap",
+      "pair_address": "0xac109C8025F272414fd9e2faA805a583708A017f",
+      "token_address": "0xbA2aE424d960c26247Dd6c32edC70B295c744C43",
+      "symbol": "DOGE",
+      "name": "Dogecoin",
+      "price": 0.09544,
+      "liquidity_usd": 1014153.9,
+      "volume_24h_usd": 173557.86,
+      "price_change_24h_pct": -0.81,
+      "url": "https://dexscreener.com/bsc/0xac109c8025f272414fd9e2faa805a583708a017f",
+      "score": 54
     },
     {
       "chain": "bsc",
@@ -93,25 +107,11 @@
       "symbol": "PUMP",
       "name": "pumpBTC Governance token",
       "price": 0.01055,
-      "liquidity_usd": 176919.65,
-      "volume_24h_usd": 226886.56,
-      "price_change_24h_pct": -10.59,
+      "liquidity_usd": 176920.45,
+      "volume_24h_usd": 164079.15,
+      "price_change_24h_pct": -12.48,
       "url": "https://dexscreener.com/bsc/0x90345fbe6da637322015129de38d3166f98aac9c",
       "score": 30
-    },
-    {
-      "chain": "bsc",
-      "dex": "pancakeswap",
-      "pair_address": "0xac109C8025F272414fd9e2faA805a583708A017f",
-      "token_address": "0xbA2aE424d960c26247Dd6c32edC70B295c744C43",
-      "symbol": "DOGE",
-      "name": "Dogecoin",
-      "price": 0.09538,
-      "liquidity_usd": 1013702.7,
-      "volume_24h_usd": 171241.01,
-      "price_change_24h_pct": -1.01,
-      "url": "https://dexscreener.com/bsc/0xac109c8025f272414fd9e2faa805a583708a017f",
-      "score": 54
     },
     {
       "chain": "solana",
@@ -957,14 +957,6 @@
     }
   ],
   "equity_history": [
-    {
-      "tick": 327,
-      "timestamp": "2026-10-02T09:58:16.874068+00:00",
-      "equity": 10378.715529763169,
-      "cash": 7793.429662609773,
-      "pnl": 378.7155297631689,
-      "pnl_pct": 3.7871552976316893
-    },
     {
       "tick": 328,
       "timestamp": "2026-10-02T10:20:11.864687+00:00",
@@ -2556,9 +2548,17 @@
       "cash": 10141.280781617572,
       "pnl": 141.28078161757185,
       "pnl_pct": 1.4128078161757185
+    },
+    {
+      "tick": 527,
+      "timestamp": "2026-10-06T11:35:31.544436+00:00",
+      "equity": 10141.280781617572,
+      "cash": 10141.280781617572,
+      "pnl": 141.28078161757185,
+      "pnl_pct": 1.4128078161757185
     }
   ],
-  "tick": 526,
+  "tick": 527,
   "risk": {
     "max_risk_per_trade_pct": 1.0,
     "max_open_positions": 2,
