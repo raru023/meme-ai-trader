@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T13:49:19.124742+00:00",
+  "updated_at": "2026-10-10T13:59:32.453206+00:00",
   "mode": "PAPER",
   "starting_balance": 10000.0,
   "cash": 10077.364315459821,
@@ -22,10 +22,10 @@
       "token_address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
       "symbol": "PUMP",
       "name": "Pump",
-      "price": 0.005626,
-      "liquidity_usd": 26288239.6,
-      "volume_24h_usd": 3801267.27,
-      "price_change_24h_pct": 1.29,
+      "price": 0.005605,
+      "liquidity_usd": 26240561.27,
+      "volume_24h_usd": 3755688.51,
+      "price_change_24h_pct": 2.04,
       "url": "https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd",
       "score": 85
     },
@@ -36,10 +36,10 @@
       "token_address": "0x6982508145454Ce325dDbE47a25d4ec3d2311933",
       "symbol": "PEPE",
       "name": "Pepe",
-      "price": 4.026e-06,
-      "liquidity_usd": 29553685.02,
-      "volume_24h_usd": 527695.68,
-      "price_change_24h_pct": 3.65,
+      "price": 4.027e-06,
+      "liquidity_usd": 29560548.96,
+      "volume_24h_usd": 527699.2,
+      "price_change_24h_pct": 3.67,
       "url": "https://dexscreener.com/ethereum/0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
       "score": 65
     },
@@ -995,14 +995,6 @@
     }
   ],
   "equity_history": [
-    {
-      "tick": 627,
-      "timestamp": "2026-10-07T20:37:23.337494+00:00",
-      "equity": 10077.364315459821,
-      "cash": 10077.364315459821,
-      "pnl": 77.36431545982123,
-      "pnl_pct": 0.7736431545982123
-    },
     {
       "tick": 628,
       "timestamp": "2026-10-07T20:59:30.489551+00:00",
@@ -2594,9 +2586,17 @@
       "cash": 10077.364315459821,
       "pnl": 77.36431545982123,
       "pnl_pct": 0.7736431545982123
+    },
+    {
+      "tick": 827,
+      "timestamp": "2026-10-10T13:59:32.453206+00:00",
+      "equity": 10077.364315459821,
+      "cash": 10077.364315459821,
+      "pnl": 77.36431545982123,
+      "pnl_pct": 0.7736431545982123
     }
   ],
-  "tick": 826,
+  "tick": 827,
   "risk": {
     "max_risk_per_trade_pct": 1.0,
     "max_open_positions": 2,
