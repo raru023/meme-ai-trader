@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T14:58:56.510220+00:00",
+  "updated_at": "2026-10-10T15:18:21.423977+00:00",
   "mode": "PAPER",
   "starting_balance": 10000.0,
   "cash": 10077.364315459821,
@@ -22,10 +22,10 @@
       "token_address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
       "symbol": "PUMP",
       "name": "Pump",
-      "price": 0.005696,
-      "liquidity_usd": 26452042.71,
-      "volume_24h_usd": 3560100.26,
-      "price_change_24h_pct": 3.62,
+      "price": 0.005711,
+      "liquidity_usd": 26487851.88,
+      "volume_24h_usd": 3508886.41,
+      "price_change_24h_pct": 4.93,
       "url": "https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd",
       "score": 85
     },
@@ -36,10 +36,10 @@
       "token_address": "0x6982508145454Ce325dDbE47a25d4ec3d2311933",
       "symbol": "PEPE",
       "name": "Pepe",
-      "price": 4.04e-06,
-      "liquidity_usd": 29659978.84,
-      "volume_24h_usd": 478075.89,
-      "price_change_24h_pct": 3.79,
+      "price": 4.042e-06,
+      "liquidity_usd": 29678513.52,
+      "volume_24h_usd": 470965.18,
+      "price_change_24h_pct": 4.14,
       "url": "https://dexscreener.com/ethereum/0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
       "score": 60
     },
@@ -51,7 +51,7 @@
       "symbol": "DOGE",
       "name": "Dogecoin",
       "price": 0.07461,
-      "liquidity_usd": 73732818.35,
+      "liquidity_usd": 73732659.59,
       "volume_24h_usd": 327699.91,
       "price_change_24h_pct": -0.01,
       "url": "https://dexscreener.com/solana/8jwzxnhbu4svkz5rebus4z6c1zzwhcmcafsrfxl5hbfw",
@@ -65,7 +65,7 @@
       "symbol": "PEPE",
       "name": "Pepe",
       "price": 3.999e-06,
-      "liquidity_usd": 3656685.39,
+      "liquidity_usd": 3656520.5,
       "volume_24h_usd": 327699.91,
       "price_change_24h_pct": -0.06,
       "url": "https://dexscreener.com/solana/2qfei1rtpdwzlr1n1kbq7c8s3s6os5mxyr8sn65bvvxs",
@@ -995,14 +995,6 @@
     }
   ],
   "equity_history": [
-    {
-      "tick": 632,
-      "timestamp": "2026-10-07T22:18:10.154566+00:00",
-      "equity": 10077.364315459821,
-      "cash": 10077.364315459821,
-      "pnl": 77.36431545982123,
-      "pnl_pct": 0.7736431545982123
-    },
     {
       "tick": 633,
       "timestamp": "2026-10-07T22:33:55.439097+00:00",
@@ -2594,9 +2586,17 @@
       "cash": 10077.364315459821,
       "pnl": 77.36431545982123,
       "pnl_pct": 0.7736431545982123
+    },
+    {
+      "tick": 832,
+      "timestamp": "2026-10-10T15:18:21.423977+00:00",
+      "equity": 10077.364315459821,
+      "cash": 10077.364315459821,
+      "pnl": 77.36431545982123,
+      "pnl_pct": 0.7736431545982123
     }
   ],
-  "tick": 831,
+  "tick": 832,
   "risk": {
     "max_risk_per_trade_pct": 1.0,
     "max_open_positions": 2,
