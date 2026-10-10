@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T11:33:28.928957+00:00",
+  "updated_at": "2026-10-10T11:48:13.874225+00:00",
   "mode": "PAPER",
   "starting_balance": 10000.0,
   "cash": 10077.364315459821,
@@ -22,12 +22,12 @@
       "token_address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
       "symbol": "PUMP",
       "name": "Pump",
-      "price": 0.005574,
-      "liquidity_usd": 26167024.71,
-      "volume_24h_usd": 4380269.22,
-      "price_change_24h_pct": -2.99,
+      "price": 0.005618,
+      "liquidity_usd": 26270568.98,
+      "volume_24h_usd": 4301530.92,
+      "price_change_24h_pct": -3.48,
       "url": "https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd",
-      "score": 69
+      "score": 65
     },
     {
       "chain": "ethereum",
@@ -37,11 +37,11 @@
       "symbol": "PEPE",
       "name": "Pepe",
       "price": 4.019e-06,
-      "liquidity_usd": 29514696.72,
-      "volume_24h_usd": 604096.1,
-      "price_change_24h_pct": 2.86,
+      "liquidity_usd": 29511492.98,
+      "volume_24h_usd": 556876.41,
+      "price_change_24h_pct": 1.9,
       "url": "https://dexscreener.com/ethereum/0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
-      "score": 73
+      "score": 65
     },
     {
       "chain": "solana",
@@ -78,26 +78,12 @@
       "token_address": "0xbA2aE424d960c26247Dd6c32edC70B295c744C43",
       "symbol": "DOGE",
       "name": "Dogecoin",
-      "price": 0.08595,
-      "liquidity_usd": 942469.33,
-      "volume_24h_usd": 108284.11,
-      "price_change_24h_pct": 1.8,
+      "price": 0.08573,
+      "liquidity_usd": 941144.6,
+      "volume_24h_usd": 111259.58,
+      "price_change_24h_pct": 0.58,
       "url": "https://dexscreener.com/bsc/0xac109c8025f272414fd9e2faa805a583708a017f",
-      "score": 65
-    },
-    {
-      "chain": "solana",
-      "dex": "raydium",
-      "pair_address": "23Lb6pSqtigcZh3aAJ7HfxJNEq9Fm4SeQ87VKEQtQ1G3",
-      "token_address": "BktN8iz9mV9MEPwLDZKMSCzqwZQ5kXt5QM4z6DjSDXen",
-      "symbol": "PEPE",
-      "name": "Pepe",
-      "price": 2.999e-06,
-      "liquidity_usd": 2810244.15,
-      "volume_24h_usd": 98545.9,
-      "price_change_24h_pct": 0.0,
-      "url": "https://dexscreener.com/solana/23lb6psqtigczh3aaj7hfxjneq9fm4seq87vkeqtq1g3",
-      "score": 38
+      "score": 53
     },
     {
       "chain": "solana",
@@ -149,10 +135,24 @@
       "symbol": "PEPE",
       "name": "PEPE",
       "price": 3.009e-06,
-      "liquidity_usd": 2802160.04,
-      "volume_24h_usd": 73640.86,
+      "liquidity_usd": 2802162.54,
+      "volume_24h_usd": 98539.59,
       "price_change_24h_pct": 0.0,
       "url": "https://dexscreener.com/solana/5b3rowwcmml2r72yppeep9hkpz7y2xwjg4brd8eerka7",
+      "score": 38
+    },
+    {
+      "chain": "solana",
+      "dex": "raydium",
+      "pair_address": "23Lb6pSqtigcZh3aAJ7HfxJNEq9Fm4SeQ87VKEQtQ1G3",
+      "token_address": "BktN8iz9mV9MEPwLDZKMSCzqwZQ5kXt5QM4z6DjSDXen",
+      "symbol": "PEPE",
+      "name": "Pepe",
+      "price": 2.999e-06,
+      "liquidity_usd": 2810244.15,
+      "volume_24h_usd": 98463.9,
+      "price_change_24h_pct": 0.0,
+      "url": "https://dexscreener.com/solana/23lb6psqtigczh3aaj7hfxjneq9fm4seq87vkeqtq1g3",
       "score": 38
     }
   ],
@@ -995,14 +995,6 @@
     }
   ],
   "equity_history": [
-    {
-      "tick": 620,
-      "timestamp": "2026-10-07T18:25:00.430199+00:00",
-      "equity": 10077.364315459821,
-      "cash": 10077.364315459821,
-      "pnl": 77.36431545982123,
-      "pnl_pct": 0.7736431545982123
-    },
     {
       "tick": 621,
       "timestamp": "2026-10-07T18:54:03.654130+00:00",
@@ -2594,9 +2586,17 @@
       "cash": 10077.364315459821,
       "pnl": 77.36431545982123,
       "pnl_pct": 0.7736431545982123
+    },
+    {
+      "tick": 820,
+      "timestamp": "2026-10-10T11:48:13.874225+00:00",
+      "equity": 10077.364315459821,
+      "cash": 10077.364315459821,
+      "pnl": 77.36431545982123,
+      "pnl_pct": 0.7736431545982123
     }
   ],
-  "tick": 819,
+  "tick": 820,
   "risk": {
     "max_risk_per_trade_pct": 1.0,
     "max_open_positions": 2,
