@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T06:24:45.126394+00:00",
+  "updated_at": "2026-10-10T06:53:44.940305+00:00",
   "mode": "PAPER",
   "starting_balance": 10000.0,
   "cash": 10077.364315459821,
@@ -22,10 +22,10 @@
       "token_address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
       "symbol": "PUMP",
       "name": "Pump",
-      "price": 0.005527,
-      "liquidity_usd": 26054276.27,
-      "volume_24h_usd": 4628614.69,
-      "price_change_24h_pct": -2.67,
+      "price": 0.005546,
+      "liquidity_usd": 26099933.64,
+      "volume_24h_usd": 4631578.25,
+      "price_change_24h_pct": -2.21,
       "url": "https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd",
       "score": 69
     },
@@ -36,10 +36,10 @@
       "token_address": "0x6982508145454Ce325dDbE47a25d4ec3d2311933",
       "symbol": "PEPE",
       "name": "Pepe",
-      "price": 4.06e-06,
-      "liquidity_usd": 29671606.25,
-      "volume_24h_usd": 651828.96,
-      "price_change_24h_pct": 2.75,
+      "price": 4.047e-06,
+      "liquidity_usd": 29622518.15,
+      "volume_24h_usd": 674384.75,
+      "price_change_24h_pct": 2.37,
       "url": "https://dexscreener.com/ethereum/0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
       "score": 73
     },
@@ -78,10 +78,10 @@
       "token_address": "0xbA2aE424d960c26247Dd6c32edC70B295c744C43",
       "symbol": "DOGE",
       "name": "Dogecoin",
-      "price": 0.08643,
-      "liquidity_usd": 945318.86,
-      "volume_24h_usd": 105531.08,
-      "price_change_24h_pct": 1.13,
+      "price": 0.08629,
+      "liquidity_usd": 943777.67,
+      "volume_24h_usd": 105119.02,
+      "price_change_24h_pct": 1.12,
       "url": "https://dexscreener.com/bsc/0xac109c8025f272414fd9e2faa805a583708a017f",
       "score": 65
     },
@@ -97,6 +97,20 @@
       "volume_24h_usd": 94486.11,
       "price_change_24h_pct": 0.0,
       "url": "https://dexscreener.com/solana/23lb6psqtigczh3aaj7hfxjneq9fm4seq87vkeqtq1g3",
+      "score": 38
+    },
+    {
+      "chain": "solana",
+      "dex": "raydium",
+      "pair_address": "7q2dQbjtxxP4DqmHEC2nsGXWSytQ8jaxdyGswmAg3PFP",
+      "token_address": "9593dFjsLKKRAaz4LX1eK2DDEgrzfu3idb6yvMysD6A1",
+      "symbol": "PUMP",
+      "name": "Pump.fun",
+      "price": 0.002255,
+      "liquidity_usd": 2050297.02,
+      "volume_24h_usd": 94480.11,
+      "price_change_24h_pct": 0.0,
+      "url": "https://dexscreener.com/solana/7q2dqbjtxxp4dqmhec2nsgxwsytq8jaxdygswmag3pfp",
       "score": 38
     },
     {
@@ -139,20 +153,6 @@
       "volume_24h_usd": 94476.11,
       "price_change_24h_pct": 0.0,
       "url": "https://dexscreener.com/solana/5b3rowwcmml2r72yppeep9hkpz7y2xwjg4brd8eerka7",
-      "score": 38
-    },
-    {
-      "chain": "solana",
-      "dex": "raydium",
-      "pair_address": "7q2dQbjtxxP4DqmHEC2nsGXWSytQ8jaxdyGswmAg3PFP",
-      "token_address": "9593dFjsLKKRAaz4LX1eK2DDEgrzfu3idb6yvMysD6A1",
-      "symbol": "PUMP",
-      "name": "Pump.fun",
-      "price": 0.002255,
-      "liquidity_usd": 2050308.58,
-      "volume_24h_usd": 94394.11,
-      "price_change_24h_pct": 0.0,
-      "url": "https://dexscreener.com/solana/7q2dqbjtxxp4dqmhec2nsgxwsytq8jaxdygswmag3pfp",
       "score": 38
     }
   ],
@@ -995,14 +995,6 @@
     }
   ],
   "equity_history": [
-    {
-      "tick": 601,
-      "timestamp": "2026-10-07T11:02:01.040471+00:00",
-      "equity": 10077.364315459821,
-      "cash": 10077.364315459821,
-      "pnl": 77.36431545982123,
-      "pnl_pct": 0.7736431545982123
-    },
     {
       "tick": 602,
       "timestamp": "2026-10-07T11:20:55.612887+00:00",
@@ -2594,9 +2586,17 @@
       "cash": 10077.364315459821,
       "pnl": 77.36431545982123,
       "pnl_pct": 0.7736431545982123
+    },
+    {
+      "tick": 801,
+      "timestamp": "2026-10-10T06:53:44.940305+00:00",
+      "equity": 10077.364315459821,
+      "cash": 10077.364315459821,
+      "pnl": 77.36431545982123,
+      "pnl_pct": 0.7736431545982123
     }
   ],
-  "tick": 800,
+  "tick": 801,
   "risk": {
     "max_risk_per_trade_pct": 1.0,
     "max_open_positions": 2,
