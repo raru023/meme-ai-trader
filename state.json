@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T14:48:10.633986+00:00",
+  "updated_at": "2026-10-10T14:58:56.510220+00:00",
   "mode": "PAPER",
   "starting_balance": 10000.0,
   "cash": 10077.364315459821,
@@ -22,10 +22,10 @@
       "token_address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
       "symbol": "PUMP",
       "name": "Pump",
-      "price": 0.00575,
-      "liquidity_usd": 26576298.23,
-      "volume_24h_usd": 3544437.5,
-      "price_change_24h_pct": 4.63,
+      "price": 0.005696,
+      "liquidity_usd": 26452042.71,
+      "volume_24h_usd": 3560100.26,
+      "price_change_24h_pct": 3.62,
       "url": "https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd",
       "score": 85
     },
@@ -38,8 +38,8 @@
       "name": "Pepe",
       "price": 4.04e-06,
       "liquidity_usd": 29659978.84,
-      "volume_24h_usd": 479885.23,
-      "price_change_24h_pct": 3.81,
+      "volume_24h_usd": 478075.89,
+      "price_change_24h_pct": 3.79,
       "url": "https://dexscreener.com/ethereum/0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
       "score": 60
     },
@@ -995,14 +995,6 @@
     }
   ],
   "equity_history": [
-    {
-      "tick": 631,
-      "timestamp": "2026-10-07T21:59:14.902617+00:00",
-      "equity": 10077.364315459821,
-      "cash": 10077.364315459821,
-      "pnl": 77.36431545982123,
-      "pnl_pct": 0.7736431545982123
-    },
     {
       "tick": 632,
       "timestamp": "2026-10-07T22:18:10.154566+00:00",
@@ -2594,9 +2586,17 @@
       "cash": 10077.364315459821,
       "pnl": 77.36431545982123,
       "pnl_pct": 0.7736431545982123
+    },
+    {
+      "tick": 831,
+      "timestamp": "2026-10-10T14:58:56.510220+00:00",
+      "equity": 10077.364315459821,
+      "cash": 10077.364315459821,
+      "pnl": 77.36431545982123,
+      "pnl_pct": 0.7736431545982123
     }
   ],
-  "tick": 830,
+  "tick": 831,
   "risk": {
     "max_risk_per_trade_pct": 1.0,
     "max_open_positions": 2,
