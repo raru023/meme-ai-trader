@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-11T08:20:52.583132+00:00",
+  "updated_at": "2026-10-11T08:38:06.232764+00:00",
   "mode": "PAPER",
   "starting_balance": 10000.0,
   "cash": 10077.364315459821,
@@ -22,10 +22,10 @@
       "token_address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
       "symbol": "PUMP",
       "name": "Pump",
-      "price": 0.005477,
-      "liquidity_usd": 25945153.08,
-      "volume_24h_usd": 2690444.77,
-      "price_change_24h_pct": -1.67,
+      "price": 0.005508,
+      "liquidity_usd": 26018145.43,
+      "volume_24h_usd": 2693298.45,
+      "price_change_24h_pct": -1.3,
       "url": "https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd",
       "score": 69
     },
@@ -38,7 +38,7 @@
       "name": "Dogecoin",
       "price": 0.07461,
       "liquidity_usd": 73732662.57,
-      "volume_24h_usd": 332328.27,
+      "volume_24h_usd": 332336.08,
       "price_change_24h_pct": 0.0,
       "url": "https://dexscreener.com/solana/8jwzxnhbu4svkz5rebus4z6c1zzwhcmcafsrfxl5hbfw",
       "score": 40
@@ -52,7 +52,7 @@
       "name": "Pepe",
       "price": 3.999e-06,
       "liquidity_usd": 3656546.06,
-      "volume_24h_usd": 332318.27,
+      "volume_24h_usd": 332326.08,
       "price_change_24h_pct": 0.0,
       "url": "https://dexscreener.com/solana/2qfei1rtpdwzlr1n1kbq7c8s3s6os5mxyr8sn65bvvxs",
       "score": 50
@@ -64,10 +64,10 @@
       "token_address": "0x6982508145454Ce325dDbE47a25d4ec3d2311933",
       "symbol": "PEPE",
       "name": "Pepe",
-      "price": 4.016e-06,
-      "liquidity_usd": 29549538.34,
-      "volume_24h_usd": 197929.4,
-      "price_change_24h_pct": -0.5,
+      "price": 4.013e-06,
+      "liquidity_usd": 29525587.84,
+      "volume_24h_usd": 197613.72,
+      "price_change_24h_pct": -0.54,
       "url": "https://dexscreener.com/ethereum/0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
       "score": 44
     },
@@ -116,6 +116,20 @@
     {
       "chain": "solana",
       "dex": "raydium",
+      "pair_address": "5b3RoWwCMmL2R72YpPEEp9hKpZ7Y2XwjG4brD8eErKA7",
+      "token_address": "EGK2NLMyBy4ijKKT2LWxaR5j3iVdYL6BF8hvSM2Cp5Qe",
+      "symbol": "PEPE",
+      "name": "PEPE",
+      "price": 3.009e-06,
+      "liquidity_usd": 2802169.46,
+      "volume_24h_usd": 93866.13,
+      "price_change_24h_pct": -0.16,
+      "url": "https://dexscreener.com/solana/5b3rowwcmml2r72yppeep9hkpz7y2xwjg4brd8eerka7",
+      "score": 42
+    },
+    {
+      "chain": "solana",
+      "dex": "raydium",
       "pair_address": "7q2dQbjtxxP4DqmHEC2nsGXWSytQ8jaxdyGswmAg3PFP",
       "token_address": "9593dFjsLKKRAaz4LX1eK2DDEgrzfu3idb6yvMysD6A1",
       "symbol": "PUMP",
@@ -126,20 +140,6 @@
       "price_change_24h_pct": 0.0,
       "url": "https://dexscreener.com/solana/7q2dqbjtxxp4dqmhec2nsgxwsytq8jaxdygswmag3pfp",
       "score": 38
-    },
-    {
-      "chain": "solana",
-      "dex": "raydium",
-      "pair_address": "5b3RoWwCMmL2R72YpPEEp9hKpZ7Y2XwjG4brD8eErKA7",
-      "token_address": "EGK2NLMyBy4ijKKT2LWxaR5j3iVdYL6BF8hvSM2Cp5Qe",
-      "symbol": "PEPE",
-      "name": "PEPE",
-      "price": 3.009e-06,
-      "liquidity_usd": 2802169.45,
-      "volume_24h_usd": 93780.14,
-      "price_change_24h_pct": -0.16,
-      "url": "https://dexscreener.com/solana/5b3rowwcmml2r72yppeep9hkpz7y2xwjg4brd8eerka7",
-      "score": 42
     },
     {
       "chain": "solana",
@@ -995,14 +995,6 @@
     }
   ],
   "equity_history": [
-    {
-      "tick": 693,
-      "timestamp": "2026-10-08T19:20:53.357176+00:00",
-      "equity": 10077.364315459821,
-      "cash": 10077.364315459821,
-      "pnl": 77.36431545982123,
-      "pnl_pct": 0.7736431545982123
-    },
     {
       "tick": 694,
       "timestamp": "2026-10-08T19:37:38.785486+00:00",
@@ -2594,9 +2586,17 @@
       "cash": 10077.364315459821,
       "pnl": 77.36431545982123,
       "pnl_pct": 0.7736431545982123
+    },
+    {
+      "tick": 893,
+      "timestamp": "2026-10-11T08:38:06.232764+00:00",
+      "equity": 10077.364315459821,
+      "cash": 10077.364315459821,
+      "pnl": 77.36431545982123,
+      "pnl_pct": 0.7736431545982123
     }
   ],
-  "tick": 892,
+  "tick": 893,
   "risk": {
     "max_risk_per_trade_pct": 1.0,
     "max_open_positions": 2,
