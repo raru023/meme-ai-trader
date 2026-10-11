@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-11T03:02:51.975855+00:00",
+  "updated_at": "2026-10-11T03:21:57.415307+00:00",
   "mode": "PAPER",
   "starting_balance": 10000.0,
   "cash": 10077.364315459821,
@@ -22,10 +22,10 @@
       "token_address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
       "symbol": "PUMP",
       "name": "Pump",
-      "price": 0.005462,
-      "liquidity_usd": 25908528.39,
-      "volume_24h_usd": 2738180.93,
-      "price_change_24h_pct": -0.13,
+      "price": 0.005403,
+      "liquidity_usd": 25768256.33,
+      "volume_24h_usd": 2764593.17,
+      "price_change_24h_pct": -0.47,
       "url": "https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd",
       "score": 69
     },
@@ -64,12 +64,12 @@
       "token_address": "0x6982508145454Ce325dDbE47a25d4ec3d2311933",
       "symbol": "PEPE",
       "name": "Pepe",
-      "price": 4.035e-06,
-      "liquidity_usd": 29676067.45,
-      "volume_24h_usd": 241082.53,
-      "price_change_24h_pct": 0.06,
+      "price": 4.015e-06,
+      "liquidity_usd": 29571859.19,
+      "volume_24h_usd": 259928.53,
+      "price_change_24h_pct": -0.34,
       "url": "https://dexscreener.com/ethereum/0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
-      "score": 48
+      "score": 44
     },
     {
       "chain": "solana",
@@ -995,14 +995,6 @@
     }
   ],
   "equity_history": [
-    {
-      "tick": 677,
-      "timestamp": "2026-10-08T13:24:47.844443+00:00",
-      "equity": 10077.364315459821,
-      "cash": 10077.364315459821,
-      "pnl": 77.36431545982123,
-      "pnl_pct": 0.7736431545982123
-    },
     {
       "tick": 678,
       "timestamp": "2026-10-08T13:51:01.721530+00:00",
@@ -2594,9 +2586,17 @@
       "cash": 10077.364315459821,
       "pnl": 77.36431545982123,
       "pnl_pct": 0.7736431545982123
+    },
+    {
+      "tick": 877,
+      "timestamp": "2026-10-11T03:21:57.415307+00:00",
+      "equity": 10077.364315459821,
+      "cash": 10077.364315459821,
+      "pnl": 77.36431545982123,
+      "pnl_pct": 0.7736431545982123
     }
   ],
-  "tick": 876,
+  "tick": 877,
   "risk": {
     "max_risk_per_trade_pct": 1.0,
     "max_open_positions": 2,
