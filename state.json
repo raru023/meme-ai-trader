@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-18T21:56:08.237268+00:00",
+  "updated_at": "2026-10-18T22:25:06.615588+00:00",
   "mode": "PAPER",
   "starting_balance": 10000.0,
   "cash": 10077.364315459821,
@@ -22,10 +22,10 @@
       "token_address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
       "symbol": "PUMP",
       "name": "Pump",
-      "price": 0.003973,
-      "liquidity_usd": 22211950.26,
-      "volume_24h_usd": 4026527.59,
-      "price_change_24h_pct": -7.88,
+      "price": 0.004074,
+      "liquidity_usd": 22493328.57,
+      "volume_24h_usd": 4075669.2,
+      "price_change_24h_pct": -5.97,
       "url": "https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd",
       "score": 65
     },
@@ -36,12 +36,26 @@
       "token_address": "0x6982508145454Ce325dDbE47a25d4ec3d2311933",
       "symbol": "PEPE",
       "name": "Pepe",
-      "price": 3.879e-06,
-      "liquidity_usd": 28260169.0,
-      "volume_24h_usd": 1127133.58,
-      "price_change_24h_pct": 0.93,
+      "price": 3.95e-06,
+      "liquidity_usd": 28672004.37,
+      "volume_24h_usd": 1164990.88,
+      "price_change_24h_pct": 2.39,
       "url": "https://dexscreener.com/ethereum/0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
-      "score": 66
+      "score": 78
+    },
+    {
+      "chain": "solana",
+      "dex": "meteora",
+      "pair_address": "HDojZeCdUee8nczxsc9MeiMKVF961HqEFeKEvHw74xVR",
+      "token_address": "PEPEqnuuCDbBC89p1u9vpnP1KQ2oj1xTcQBsjt9X55m",
+      "symbol": "PEPE",
+      "name": "Pepe",
+      "price": 3.945e-06,
+      "liquidity_usd": 107747.68,
+      "volume_24h_usd": 451304.29,
+      "price_change_24h_pct": 2.68,
+      "url": "https://dexscreener.com/solana/hdojzecduee8nczxsc9meimkvf961hqefekevhw74xvr",
+      "score": 45
     },
     {
       "chain": "solana",
@@ -66,10 +80,10 @@
       "name": "Dogecoin",
       "price": 0.07461,
       "liquidity_usd": 73732642.86,
-      "volume_24h_usd": 334347.07,
-      "price_change_24h_pct": -0.01,
+      "volume_24h_usd": 292549.2,
+      "price_change_24h_pct": 0.0,
       "url": "https://dexscreener.com/solana/8jwzxnhbu4svkz5rebus4z6c1zzwhcmcafsrfxl5hbfw",
-      "score": 44
+      "score": 40
     },
     {
       "chain": "solana",
@@ -80,24 +94,10 @@
       "name": "Pepe",
       "price": 3.999e-06,
       "liquidity_usd": 3656522.75,
-      "volume_24h_usd": 334347.07,
-      "price_change_24h_pct": -0.07,
-      "url": "https://dexscreener.com/solana/2qfei1rtpdwzlr1n1kbq7c8s3s6os5mxyr8sn65bvvxs",
-      "score": 54
-    },
-    {
-      "chain": "solana",
-      "dex": "raydium",
-      "pair_address": "BttaBirnpLJbystxxnwYhSejWT4s3Lbij5dpuXLNuDtQ",
-      "token_address": "DogePMoL8zXQtYbvAYNFTFST9pewYi6uHWpZvFUtnBBz",
-      "symbol": "DOGE",
-      "name": "DOGE",
-      "price": 0.1112,
-      "liquidity_usd": 111058644.39,
-      "volume_24h_usd": 75928.12,
+      "volume_24h_usd": 292549.2,
       "price_change_24h_pct": 0.0,
-      "url": "https://dexscreener.com/solana/bttabirnpljbystxxnwyhsejwt4s3lbij5dpuxlnudtq",
-      "score": 35
+      "url": "https://dexscreener.com/solana/2qfei1rtpdwzlr1n1kbq7c8s3s6os5mxyr8sn65bvvxs",
+      "score": 50
     },
     {
       "chain": "solana",
@@ -995,14 +995,6 @@
     }
   ],
   "equity_history": [
-    {
-      "tick": 1078,
-      "timestamp": "2026-10-14T10:37:01.472956+00:00",
-      "equity": 10077.364315459821,
-      "cash": 10077.364315459821,
-      "pnl": 77.36431545982123,
-      "pnl_pct": 0.7736431545982123
-    },
     {
       "tick": 1079,
       "timestamp": "2026-10-14T11:06:42.301476+00:00",
@@ -2594,9 +2586,17 @@
       "cash": 10077.364315459821,
       "pnl": 77.36431545982123,
       "pnl_pct": 0.7736431545982123
+    },
+    {
+      "tick": 1278,
+      "timestamp": "2026-10-18T22:25:06.615588+00:00",
+      "equity": 10077.364315459821,
+      "cash": 10077.364315459821,
+      "pnl": 77.36431545982123,
+      "pnl_pct": 0.7736431545982123
     }
   ],
-  "tick": 1277,
+  "tick": 1278,
   "risk": {
     "max_risk_per_trade_pct": 1.0,
     "max_open_positions": 2,
