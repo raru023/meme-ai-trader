@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-21T22:33:02.646217+00:00",
+  "updated_at": "2026-10-21T23:01:22.057601+00:00",
   "mode": "PAPER",
   "starting_balance": 10000.0,
   "cash": 10077.364315459821,
@@ -22,10 +22,10 @@
       "token_address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
       "symbol": "PUMP",
       "name": "Pump",
-      "price": 0.005135,
-      "liquidity_usd": 25300956.72,
-      "volume_24h_usd": 6021480.35,
-      "price_change_24h_pct": 7.64,
+      "price": 0.005138,
+      "liquidity_usd": 25307921.09,
+      "volume_24h_usd": 6028898.01,
+      "price_change_24h_pct": 8.65,
       "url": "https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd",
       "score": 83
     },
@@ -36,10 +36,10 @@
       "token_address": "0x6982508145454Ce325dDbE47a25d4ec3d2311933",
       "symbol": "PEPE",
       "name": "Pepe",
-      "price": 4.678e-06,
-      "liquidity_usd": 31848308.84,
-      "volume_24h_usd": 1897650.02,
-      "price_change_24h_pct": 3.83,
+      "price": 4.671e-06,
+      "liquidity_usd": 31802690.19,
+      "volume_24h_usd": 1767418.45,
+      "price_change_24h_pct": 2.24,
       "url": "https://dexscreener.com/ethereum/0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
       "score": 85
     },
@@ -52,7 +52,7 @@
       "name": "Pepe",
       "price": 4.182e-06,
       "liquidity_usd": 3893963.77,
-      "volume_24h_usd": 539962.94,
+      "volume_24h_usd": 539963.25,
       "price_change_24h_pct": -0.18,
       "url": "https://dexscreener.com/solana/ntms39auhvwy4nky4f73uq7qmfesimvtazbnr7ql4vp",
       "score": 59
@@ -66,7 +66,7 @@
       "name": "Dogecoin",
       "price": 0.07461,
       "liquidity_usd": 73732718.92,
-      "volume_24h_usd": 338617.88,
+      "volume_24h_usd": 338618.19,
       "price_change_24h_pct": 0.0,
       "url": "https://dexscreener.com/solana/8jwzxnhbu4svkz5rebus4z6c1zzwhcmcafsrfxl5hbfw",
       "score": 40
@@ -80,7 +80,7 @@
       "name": "Pepe",
       "price": 3.999e-06,
       "liquidity_usd": 3656614.76,
-      "volume_24h_usd": 338617.88,
+      "volume_24h_usd": 338618.19,
       "price_change_24h_pct": 0.0,
       "url": "https://dexscreener.com/solana/2qfei1rtpdwzlr1n1kbq7c8s3s6os5mxyr8sn65bvvxs",
       "score": 50
@@ -93,8 +93,8 @@
       "symbol": "MEME",
       "name": "A Meme Coin",
       "price": 0.008936,
-      "liquidity_usd": 1188124.76,
-      "volume_24h_usd": 306882.95,
+      "liquidity_usd": 1188133.26,
+      "volume_24h_usd": 305278.77,
       "price_change_24h_pct": -13.11,
       "url": "https://dexscreener.com/robinhood/0x27ccf0a6d1ee74840220715bcca7d3b01e0d33aa30d0259b47ae1585b3f4c071",
       "score": 40
@@ -106,10 +106,10 @@
       "token_address": "0x6894CDe390a3f51155ea41Ed24a33A4827d3063D",
       "symbol": "CAT",
       "name": "Simons Cat",
-      "price": 1.855e-06,
-      "liquidity_usd": 5348919.74,
-      "volume_24h_usd": 86209.63,
-      "price_change_24h_pct": 1.39,
+      "price": 1.85e-06,
+      "liquidity_usd": 5336401.73,
+      "volume_24h_usd": 86696.1,
+      "price_change_24h_pct": 1.13,
       "url": "https://dexscreener.com/bsc/0x6df9adc1837bf37e0b1b943d59a7e50d9678c81b",
       "score": 55
     },
@@ -995,14 +995,6 @@
     }
   ],
   "equity_history": [
-    {
-      "tick": 1199,
-      "timestamp": "2026-10-17T06:08:26.795880+00:00",
-      "equity": 10077.364315459821,
-      "cash": 10077.364315459821,
-      "pnl": 77.36431545982123,
-      "pnl_pct": 0.7736431545982123
-    },
     {
       "tick": 1200,
       "timestamp": "2026-10-17T07:00:04.903395+00:00",
@@ -2594,9 +2586,17 @@
       "cash": 10077.364315459821,
       "pnl": 77.36431545982123,
       "pnl_pct": 0.7736431545982123
+    },
+    {
+      "tick": 1399,
+      "timestamp": "2026-10-21T23:01:22.057601+00:00",
+      "equity": 10077.364315459821,
+      "cash": 10077.364315459821,
+      "pnl": 77.36431545982123,
+      "pnl_pct": 0.7736431545982123
     }
   ],
-  "tick": 1398,
+  "tick": 1399,
   "risk": {
     "max_risk_per_trade_pct": 1.0,
     "max_open_positions": 2,
