@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25T07:51:31.816980+00:00",
+  "updated_at": "2026-10-25T08:11:04.827230+00:00",
   "mode": "PAPER",
   "starting_balance": 10000.0,
   "cash": 10077.364315459821,
@@ -22,10 +22,10 @@
       "token_address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
       "symbol": "PUMP",
       "name": "Pump",
-      "price": 0.004253,
-      "liquidity_usd": 23063516.33,
-      "volume_24h_usd": 2966086.0,
-      "price_change_24h_pct": 0.78,
+      "price": 0.004247,
+      "liquidity_usd": 23046661.87,
+      "volume_24h_usd": 2937812.24,
+      "price_change_24h_pct": 0.62,
       "url": "https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd",
       "score": 73
     },
@@ -37,9 +37,9 @@
       "symbol": "PEPE",
       "name": "Pepe",
       "price": 4.379e-06,
-      "liquidity_usd": 29955874.14,
-      "volume_24h_usd": 1826113.83,
-      "price_change_24h_pct": -1.49,
+      "liquidity_usd": 29952429.81,
+      "volume_24h_usd": 1796318.5,
+      "price_change_24h_pct": -0.9,
       "url": "https://dexscreener.com/ethereum/0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
       "score": 69
     },
@@ -65,11 +65,11 @@
       "symbol": "PEPE",
       "name": "Pepe",
       "price": 3.999e-06,
-      "liquidity_usd": 3656601.8,
-      "volume_24h_usd": 378464.48,
-      "price_change_24h_pct": 0.0,
+      "liquidity_usd": 3656601.81,
+      "volume_24h_usd": 378464.33,
+      "price_change_24h_pct": -0.07,
       "url": "https://dexscreener.com/solana/2qfei1rtpdwzlr1n1kbq7c8s3s6os5mxyr8sn65bvvxs",
-      "score": 50
+      "score": 54
     },
     {
       "chain": "solana",
@@ -116,30 +116,30 @@
     {
       "chain": "solana",
       "dex": "raydium",
+      "pair_address": "85Dczq3uuz7mVHc1azS9qWwTcUnUrB1WFyEPfk7w8jVN",
+      "token_address": "7jLnAzioUb6Qh9uMq6AC4AUH9LdNKudRrdPkCXC39vE9",
+      "symbol": "DOGE",
+      "name": "DOGE",
+      "price": 0.07235,
+      "liquidity_usd": 72153510.02,
+      "volume_24h_usd": 146890.41,
+      "price_change_24h_pct": -0.01,
+      "url": "https://dexscreener.com/solana/85dczq3uuz7mvhc1azs9qwwtcunurb1wfyepfk7w8jvn",
+      "score": 44
+    },
+    {
+      "chain": "solana",
+      "dex": "raydium",
       "pair_address": "23Lb6pSqtigcZh3aAJ7HfxJNEq9Fm4SeQ87VKEQtQ1G3",
       "token_address": "BktN8iz9mV9MEPwLDZKMSCzqwZQ5kXt5QM4z6DjSDXen",
       "symbol": "PEPE",
       "name": "Pepe",
       "price": 2.999e-06,
       "liquidity_usd": 2810251.35,
-      "volume_24h_usd": 146890.41,
+      "volume_24h_usd": 146890.09,
       "price_change_24h_pct": 0.0,
       "url": "https://dexscreener.com/solana/23lb6psqtigczh3aaj7hfxjneq9fm4seq87vkeqtq1g3",
       "score": 50
-    },
-    {
-      "chain": "solana",
-      "dex": "raydium",
-      "pair_address": "85Dczq3uuz7mVHc1azS9qWwTcUnUrB1WFyEPfk7w8jVN",
-      "token_address": "7jLnAzioUb6Qh9uMq6AC4AUH9LdNKudRrdPkCXC39vE9",
-      "symbol": "DOGE",
-      "name": "DOGE",
-      "price": 0.07235,
-      "liquidity_usd": 72153507.3,
-      "volume_24h_usd": 119843.79,
-      "price_change_24h_pct": -0.01,
-      "url": "https://dexscreener.com/solana/85dczq3uuz7mvhc1azs9qwwtcunurb1wfyepfk7w8jvn",
-      "score": 44
     },
     {
       "chain": "solana",
@@ -995,14 +995,6 @@
     }
   ],
   "equity_history": [
-    {
-      "tick": 1341,
-      "timestamp": "2026-10-20T11:35:28.585325+00:00",
-      "equity": 10077.364315459821,
-      "cash": 10077.364315459821,
-      "pnl": 77.36431545982123,
-      "pnl_pct": 0.7736431545982123
-    },
     {
       "tick": 1342,
       "timestamp": "2026-10-20T12:05:18.024572+00:00",
@@ -2594,9 +2586,17 @@
       "cash": 10077.364315459821,
       "pnl": 77.36431545982123,
       "pnl_pct": 0.7736431545982123
+    },
+    {
+      "tick": 1541,
+      "timestamp": "2026-10-25T08:11:04.827230+00:00",
+      "equity": 10077.364315459821,
+      "cash": 10077.364315459821,
+      "pnl": 77.36431545982123,
+      "pnl_pct": 0.7736431545982123
     }
   ],
-  "tick": 1540,
+  "tick": 1541,
   "risk": {
     "max_risk_per_trade_pct": 1.0,
     "max_open_positions": 2,
